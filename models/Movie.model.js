@@ -4,7 +4,7 @@ const movieModel = new Schema({
   title: String,
   genre: String,
   plot: String,
-  cast: [{ type: Schema.Types.ObjectId, ref: "Celebrity" }],
+  cast_id: [{ type: Schema.Types.ObjectId, ref: "Celebrity" }],
 });
 
-module.exports = model("movies", movieModel);
+module.exports = model("Movies", movieModel);
