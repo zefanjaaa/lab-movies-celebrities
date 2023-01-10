@@ -18,7 +18,7 @@ router.post("/celebrities/create", (req, res) => {
     })
     .catch((error) => {
       console.log("error", error);
-      res.render("/celebrities/new-celebrities");
+      res.render("celebrities/new-celebrities");
     });
 });
 
