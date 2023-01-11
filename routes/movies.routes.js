@@ -59,10 +59,33 @@ router.post("/movies/:id/delete", (req, res) => {
 
 router.get("/movies/:id/edit", (req, res) => {
   Movies.findById(req.params.id);
-  Celebrity.find().then((somewords) => {
-    console.log("some words", somewords);
-    res.render("movies/edit-movie");
-  });
+  Celebrity.find()
+    // .populate("cast_id")
+    .then((somewords) => {
+      console.log("some words", somewords);
+      res.render("movies/edit-movie", somewords);
+    })
+    .catch((error) => {
+      console.log("biiig error", error);
+    });
+});
+
+router.post("/movies/:id/edit", (req, res) => {
+  const { title, genre, plot, cast_id } = req.body;
+  Movies.findByIdAndUpdate(req.params.id, {
+    title: title,
+    genre: genre,
+    plot: plot,
+    cast_id: cast_id,
+  })
+
+    .then((result) => {
+      console.log("Movie edited", result);
+      res.redirect("/movies/movie-details");
+    })
+    .catch((error) => {
+      console.log("error edit failed", error);
+    });
 });
 
 // router.get("/movies", (req, res) => {
