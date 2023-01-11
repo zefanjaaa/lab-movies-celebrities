@@ -61,9 +61,9 @@ router.get("/movies/:id/edit", (req, res) => {
   Movies.findById(req.params.id);
   Celebrity.find()
     // .populate("cast_id")
-    .then((somewords) => {
-      console.log("some words", somewords);
-      res.render("movies/edit-movie", somewords);
+    .then((editMovie) => {
+      console.log("some words", editMovie);
+      res.render("movies/edit-movie", editMovie);
     })
     .catch((error) => {
       console.log("biiig error", error);
