@@ -1,19 +1,38 @@
+<style>
+    button{
+        border-radius: 50px;
+    color: chocolate;
+    background-color: darkblue;
+    padding: 8px;
+     
+    }
+
+    #al{
+        float:left;
+        margin-left: -6px;
+    }
+</style>
+
 <h1> Title: {{title}}</h1>
 
 
 
 <h3>Genre: {{genre}}</h3>
-<h4>Plot: {{plot}}</h4>
+<h3>Plot: {{plot}}</h3>
+
 <br>
-<br>
-<h2>celebrity</h2>
-{{#each cast_id}}
-name:{{this.name}}
-<br>
-catchphrase:{{catchphrase}}
 <br>
 
-occupation:{{occupation}}
+<h1>Celebrity info</h1>
+
+{{#each cast_id}}
+
+<h3>Name:{{this.name}}</h3>
+<br>
+<h3>Catchphrase:{{catchphrase}}</h3>
+<br>
+
+<h3>Occupation:{{occupation}}</h3>
 <br>
 
 {{/each}}
@@ -23,7 +42,7 @@ occupation:{{occupation}}
 
 </form>
 
-<a href="/movies/{{_id}}/edit"> Edit movie</a>
+<a id= "al" href="/movies/{{_id}}/edit"> Edit movie</a>
 
 {{!-- <form action="/movies/{{_id}}/edit" method="post">
 <button type="submit"> Edit movie</button>

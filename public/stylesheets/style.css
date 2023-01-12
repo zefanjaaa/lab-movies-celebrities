@@ -1,8 +1,13 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: papayawhip;
 }
 
 a {
-  color: #00b7ff;
+  color: purple;
+  margin: 40px;
 }
+
+
+

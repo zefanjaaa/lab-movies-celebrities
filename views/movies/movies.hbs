@@ -1,9 +1,16 @@
 <h2> List of all movies</h2>
 
+<style>
+    h2{
+        font-family: serif;
+        font-size:50px
+    }
+</style>
+
 {{#each allCelebrities}}
 
-<h2> {{title}} </h2>
+<h3> {{title}} </h3>
 <a href="/movies/{{_id}}">link to movie</a>
 {{/each}}
 
-<a href="./">ww </a>
+

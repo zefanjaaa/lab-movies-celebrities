@@ -58,12 +58,17 @@ router.post("/movies/:id/delete", (req, res) => {
 });
 
 router.get("/movies/:id/edit", (req, res) => {
-  Movies.findById(req.params.id);
+  let celebrityArray = []
   Celebrity.find()
+  .then(celebs=>{
+    celebrityArray=celebs
+  })
+
+  Movies.findById(req.params.id)
     // .populate("cast_id")
     .then((editMovie) => {
       console.log("some words", editMovie);
-      res.render("movies/edit-movie", editMovie);
+      res.render("movies/edit-movie", {editMovie,celebrityArray});
     })
     .catch((error) => {
       console.log("biiig error", error);
@@ -81,7 +86,7 @@ router.post("/movies/:id/edit", (req, res) => {
 
     .then((result) => {
       console.log("Movie edited", result);
-      res.redirect("/movies/movie-details");
+      res.redirect("/movies");
     })
     .catch((error) => {
       console.log("error edit failed", error);
